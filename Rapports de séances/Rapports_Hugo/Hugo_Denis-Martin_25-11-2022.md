@@ -2,6 +2,14 @@
 
 ### Goal of the session: operate the motors
 
-I first started by assembling the cables 
+I first started by assembling cables to the motors. I then connected the cyt-132 (command) card, Arduino card and motors.
 
-![](Annexes/2022-)
+![](Annexes/2022-11-25_CarteCommande1.jpeg)
+
+![](Annexes/2022-11-25_CarteCommande2.jpeg)
+
+<br />
+I will have to create an Arduino program to operate the cyt-132 which I have found the truth table. 
+
+![](Annexes/2022-11-25_CarteCommandeTableau.jpg)
+
