@@ -4,30 +4,30 @@
 
 We just received the motors and the wheels, as well as the adaptator.
 
-![](Annexes/Roues_15-11-2022.jpg)
+![](Annexes/2022-11-15_Roues.jpg)
 
-![](Annexes/Moteur_15-11-2022.jpg)
+![](Annexes/2022-11-15_Moteur.jpg)
 
-![](Annexes/Liaison_15-11-2022.jpg)
+![](Annexes/2022-11-15_Liaison.jpg)
 
-![](Annexes/Assemblage_15-11-2022.jpg)
+![](Annexes/2022-11-15_Assemblage.jpg)
 
 
 
 Now, I'm going to draft the chassis on inventor 
 
-![](Annexes/ChassisFusion_15-11-2002.png)
+![](Annexes/2022-11-15_ChassisFusion.png)
 
 And export the model to inkscape to make a lasercut on a wooden board of 5mm
 
-![](Annexes/ChassisInkscape_15-11-2002.png)
+![](Annexes/2022-11-15_ChassisInkscape.png)
 
 I then started to assemble the robot
 
-![](Annexes/AvancementRobo1_15-11-2002.jpg)
+![](Annexes/2022-11-15_AvancementRobo1.jpg)
 
-![](Annexes/AvancementRobo2_15-11-2002.jpg)
+![](Annexes/2022-11-15_AvancementRobo2.jpg)
 
-![](Annexes/AvancementRobo3_15-11-2002.jpg)
+![](Annexes/2022-11-15_AvancementRobo3.jpg)
 
-![](Annexes/AvancementRobo4_15-11-2002.jpg)
+![](Annexes/2022-11-15_AvancementRobo4.jpg)

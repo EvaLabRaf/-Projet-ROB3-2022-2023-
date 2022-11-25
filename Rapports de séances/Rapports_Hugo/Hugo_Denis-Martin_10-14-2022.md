@@ -7,26 +7,26 @@ In order to make a first model of the robot and to decide how we will arrange th
 
 <b>Gear Motor DC:</b>
 
-![](Annexes/MoteurCC_14-10-2022.png)
-![](Annexes/MoteurCC_Cotes_14-10-2022.png)
-![](Annexes/MoteurCC_3D_14-10-2022.png)
+![](Annexes/2022-10-14_MoteurCC.png)
+![](Annexes/2022-10-14_MoteurCC_Cotes.png)
+![](Annexes/2022-10-14_MoteurCC_3D.png)
 
 <b>Wheel:</b>
 
-![](Annexes/Roues_Cotes_14-10-2022.png)
-![](Annexes/Roues_3D_14-10-2022.png)
+![](Annexes/2022-10-14_Roues_Cotes.png)
+![](Annexes/2022-10-14_Roues_3D.png)
 
 So, I observe the first problem, we must find a way to connect the hexagonal core of diameter 12mm with the output shaft of the motor of diameter 6 mm circular with a flat.
 
 <b>Connection:</b>
 
-![](Annexes/Liaison_3D1_14-10-2022.png)
-![](Annexes/Liaison_3D2_14-10-2022.png)
-![](Annexes/Liaison_3D3_14-10-2022.png)
+![](Annexes/2022-10-14_Liaison_3D1.png)
+![](Annexes/2022-10-14_Liaison_3D2.png)
+![](Annexes/2022-10-14_Liaison_3D3.png)
 
 Here is the chosen model, on one side a bore to receive the motor shaft with a hole to put a screw to maintain it in place. On the other side a hexagonal shaft to insert in the hub of the wheel with a groove that can receive a circlip to lock it.
 
 <b>Finale assemble:</b>
 
-![](Annexes/Assemblage1_14-10-2022.png)
-![](Annexes/Assemblage2_14-10-2022.png)
+![](Annexes/2022-10-14_Assemblage1.png)
+![](Annexes/2022-10-14_Assemblage2.png)
