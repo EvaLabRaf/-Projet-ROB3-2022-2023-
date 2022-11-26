@@ -13,3 +13,9 @@ I will have to create an Arduino program to operate the cyt-132 which I have fou
 
 ![](Annexes/2022-11-25_CarteCommandeTableau.jpg)
 
+<br />
+I have created this script for basic mouvement as moving forward and back.
+
+![](Annexes/2022-11-25_CodeArduino1.jpg)
+
+![](Annexes/2022-11-25_CodeArduino2.jpg)
