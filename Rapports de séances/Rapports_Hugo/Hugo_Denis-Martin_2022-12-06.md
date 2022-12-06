@@ -17,3 +17,7 @@ I created a new program, with clearer movements.
 <br />
 
 And then I'm going to implement captors to the robot 
+
+![](Annexes/2022-12-06_Assemblage1)
+
+![](Annexes/2022-12-06_Assemblage2)
