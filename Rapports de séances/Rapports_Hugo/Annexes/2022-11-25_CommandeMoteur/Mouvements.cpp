@@ -39,13 +39,13 @@ void Mouvements::Backward(){
 void Mouvements::Right(){
   Serial.println("Right");
   InstantTime=millis();
-  while ((millis() - InstantTime) < 2000){
+  while ((millis() - InstantTime) < 1000){
     digitalWrite(PWDD, LOW);
     digitalWrite(DIRD, LOW);
     digitalWrite(PWDG, HIGH);
     digitalWrite(DIRG, HIGH);
   }
-  while((millis() - InstantTime) < 3000){
+  while((millis() - InstantTime) < 2000){
     digitalWrite(PWDD, LOW);
     digitalWrite(PWDG, LOW);
   }
@@ -54,13 +54,13 @@ void Mouvements::Right(){
 void Mouvements::Left(){
   Serial.println("Left");
   InstantTime=millis();
-  while ((millis() - InstantTime) < 2000){
+  while ((millis() - InstantTime) < 1000){
     digitalWrite(PWDD, HIGH);
     digitalWrite(DIRD, HIGH);
     digitalWrite(PWDG, LOW);
     digitalWrite(DIRG, LOW);
   }
-  while((millis() - InstantTime) < 3000){
+  while((millis() - InstantTime) < 2000){
     digitalWrite(PWDD, LOW);
     digitalWrite(PWDG, LOW);
   }
