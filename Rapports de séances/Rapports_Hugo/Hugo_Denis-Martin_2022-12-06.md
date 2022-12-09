@@ -15,11 +15,13 @@ I created a new program, with clearer movements.
 ![](Annexes/2022-12-06_CodeArduinoCpp3.jpg)
 
 <br />
-![](Annexes/2022-12-06_Assemblage1)
 
-![](Annexes/2022-12-06_Assemblage2)
+![](Annexes/2022-12-06_Assemblage1.jpg)
+
+![](Annexes/2022-12-06_Assemblage2.jpg)
 
 <br />
+
 And then I'm going to implement some captors to the robot as the laser to avoid obstacles.
 
 ![](Annexes/2022-12-09_Laser.jpg)
