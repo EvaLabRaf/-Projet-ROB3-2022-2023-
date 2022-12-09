@@ -1,6 +1,6 @@
 # Rapport de séance du mardi 06/12/2022
 
-### Goal of the session: Make a proper movements
+### Goal of the session: Make proper movements
 
 I created a new program, with clearer movements.
 
@@ -16,7 +16,7 @@ I created a new program, with clearer movements.
 
 <br />
 
-And then I'm going to implement captors to the robot 
+And then I'm going to implement some captors to the robot as the laser to avoid obstacles.
 
 ![](Annexes/2022-12-06_Assemblage1)
 
