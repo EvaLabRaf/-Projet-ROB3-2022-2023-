@@ -6,8 +6,7 @@
 class Capteurdistance{
   public:
     Capteurdistance();
-    int InstantTime;
-    void Forward();
+    int FrontDistance;
 };
 
 #endif

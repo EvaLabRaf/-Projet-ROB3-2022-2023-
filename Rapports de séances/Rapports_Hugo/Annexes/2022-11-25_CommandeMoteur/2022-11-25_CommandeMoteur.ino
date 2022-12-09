@@ -5,7 +5,9 @@ int DIRD = 6;
 //Moteurs Gauche
 int PWDG = 11;
 int DIRG = 7;
+
 int InstantTime;
+
 Mouvements cl;
 
 void setup() {
@@ -18,6 +20,8 @@ pinMode(DIRG, OUTPUT);
 
 
 void loop() {
+
+  while ()
   InstantTime=millis();
   while ((millis()-InstantTime)<3000) {
     cl.Forward();
@@ -34,5 +38,4 @@ void loop() {
   while ((millis()-InstantTime)<3000) {
     cl.Right();
   }
-
 }
