@@ -13,7 +13,6 @@ class Mouvements{
     const int DIRD = 6;
     const int PWDG = 11;
     const int DIRG = 7;
-    int InstantTime;
     void Forward();
     void Backward();
     void Left();
