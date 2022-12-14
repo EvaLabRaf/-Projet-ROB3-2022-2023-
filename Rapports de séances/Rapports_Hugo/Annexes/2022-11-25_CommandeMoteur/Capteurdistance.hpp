@@ -3,10 +3,12 @@
 #include "Arduino.h"
 #include "Adafruit_VL53L0X.h"
 
-class Capteurdistance{
+class Capteurdistance : public Adafruit_VL53L0X {
   public:
     Capteurdistance();
-    int FrontDistance;
+    int distance();
+    Adafruit_VL53L0X lox;
+    int frontdistance;
 };
 
 #endif

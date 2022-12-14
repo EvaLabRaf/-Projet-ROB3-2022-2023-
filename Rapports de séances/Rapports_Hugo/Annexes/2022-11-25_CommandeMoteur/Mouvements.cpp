@@ -3,37 +3,37 @@
 Mouvements::Mouvements(){};
 
 /**
-
+For the PWD, 255 means 98 rpm
+so 128 is for 49 rpm
 */
 
 void Mouvements::Forward(){
-  Serial.println("Forward");
-  digitalWrite(PWDD, HIGH);
+  analogWrite(PWDD, 128);
   digitalWrite(DIRD, HIGH);
-  digitalWrite(PWDG, HIGH);
+  analogWrite(PWDG, 128);
   digitalWrite(DIRG, HIGH);
 }
 
 void Mouvements::Backward(){
-  Serial.println("Backward");
-  digitalWrite(PWDD, HIGH);
+  analogWrite(PWDD, 128);
   digitalWrite(DIRD, LOW);
-  digitalWrite(PWDG, HIGH);
+  analogWrite(PWDG, 128);
+  digitalWrite(DIRG, LOW);
+}
+
+void Mouvements::Left(){
+  analogWrite(PWDD, 128);
+  digitalWrite(DIRD, HIGH);
+  analogWrite(PWDG, 0);
   digitalWrite(DIRG, LOW);
 }
 
 void Mouvements::Right(){
-  Serial.println("Right");
-  digitalWrite(PWDD, LOW);
+  analogWrite(PWDD, 0);
   digitalWrite(DIRD, LOW);
-  digitalWrite(PWDG, HIGH);
+  analogWrite(PWDG, 128);
   digitalWrite(DIRG, HIGH);
 }
   
-void Mouvements::Left(){
-  Serial.println("Left");
-  digitalWrite(PWDD, HIGH);
-  digitalWrite(DIRD, HIGH);
-  digitalWrite(PWDG, LOW);
-  digitalWrite(DIRG, LOW);
-}
+
+
