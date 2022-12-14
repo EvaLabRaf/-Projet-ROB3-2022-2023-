@@ -15,7 +15,7 @@ Capteurdistance cd;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("test setup");
+  Serial.println("AAAAAA test setup");
   pinMode(PWDD, OUTPUT);
   pinMode(DIRD, OUTPUT);
   pinMode(PWDG, OUTPUT);
@@ -25,7 +25,7 @@ void setup() {
 
 
 void loop() {
-  
+  Serial.println("test loop");
   Serial.println(cd.distance());
 
   //while ()
