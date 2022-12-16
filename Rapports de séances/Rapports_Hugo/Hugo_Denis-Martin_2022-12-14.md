@@ -2,4 +2,4 @@
 
 ### Goal of the session: Still implementing the laser to the code
 
-I have 
+The code I have first made didn't even compile because the 
