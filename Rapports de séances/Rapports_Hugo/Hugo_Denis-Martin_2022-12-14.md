@@ -2,4 +2,5 @@
 
 ### Goal of the session: Still implementing the laser to the code
 
-The code I have first made didn't even compile because the 
+The code I have first made didn't even compile, because I didn't know the syntax used to implement a library into a headers.
+
