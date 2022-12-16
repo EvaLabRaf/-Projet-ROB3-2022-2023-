@@ -8,7 +8,7 @@ Those are some informations I have found about VL53L1XV laser captor
 
 <br />
 
-I have found a template and I am working on implementing it.
+I have found a template, that works, and I am working on implementing it.
 
 ![](Annexes/2022-12-09_LaserCode1.jpg)
 
