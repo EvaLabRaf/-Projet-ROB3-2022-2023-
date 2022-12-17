@@ -10,4 +10,14 @@ I started by adding a detachable connector between the power supply and the robo
 
 ![](Annexes/2022-12-16_Avancement.jpg)
 
+<br />
+
 I then have continue the code for the laser, and decided to let down the header and rather implement the laser code in the main because I was not able to find the problem I have got.
+
+<br />
+
+![](Annexes/2022-12-16_Code1.jpg)
+
+![](Annexes/2022-12-16_Code2.jpg)
+
+![](Annexes/2022-12-16_Code3.jpg)
