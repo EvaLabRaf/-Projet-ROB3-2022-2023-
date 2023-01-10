@@ -14,6 +14,15 @@ void Mouvements::Forward(){
   digitalWrite(DIRG, HIGH);
 }
 
+void Mouvements::AvanceForward(){
+  Serial.println(F("Forward"));
+  InstantTime=millis();
+  Serial.println(InstantTime);
+  while ((millis()-InstantTime)<1000) {
+    Forward();
+  }
+}
+
 void Mouvements::Backward(){
   analogWrite(PWDD, 128);
   digitalWrite(DIRD, LOW);
@@ -21,11 +30,30 @@ void Mouvements::Backward(){
   digitalWrite(DIRG, LOW);
 }
 
+void Mouvements::AvanceBackward(){
+  Serial.println(F("Forward"));
+  InstantTime=millis();
+  Serial.println(InstantTime);
+  while ((millis()-InstantTime)<1000) {
+    Backward();
+  }
+}
+
+
 void Mouvements::Left(){
   analogWrite(PWDD, 128);
   digitalWrite(DIRD, HIGH);
   analogWrite(PWDG, 0);
   digitalWrite(DIRG, LOW);
+}
+
+void Mouvements::AvanceLeft(){
+  Serial.println(F("Forward"));
+  InstantTime=millis();
+  Serial.println(InstantTime);
+  while ((millis()-InstantTime)<1000) {
+    Left();
+  }
 }
 
 void Mouvements::Right(){
@@ -35,5 +63,13 @@ void Mouvements::Right(){
   digitalWrite(DIRG, HIGH);
 }
   
+void Mouvements::AvanceRight(){
+  Serial.println(F("Forward"));
+  InstantTime=millis();
+  Serial.println(InstantTime);
+  while ((millis()-InstantTime)<1000) {
+    Right();
+  }
+}
 
 
