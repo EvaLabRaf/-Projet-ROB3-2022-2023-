@@ -14,14 +14,15 @@ class Mouvements{
     const int DIRD = 6;
     const int PWDG = 11;
     const int DIRG = 7;
+    void Off();
     void Forward();
     void Backward();
     void Left();
     void Right();
-    void AvanceForward();
-    void AvanceBackward();
-    void AvanceRight();
-    void AvanceLeft();
+    void AvanceForward(int temps);
+    void AvanceBackward(int temps);
+    void AvanceRight(int temps);
+    void AvanceLeft(int temps);
 };
 
 #endif

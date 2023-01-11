@@ -11,14 +11,13 @@ int DIRG = 7;
 
 //Timer
 unsigned long InstantTime;  //unsigned long permet d'avoir des chiffre allant jusqu'à 2^32 - 1
-//Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("test setup");
+  Serial.println(F("Setup Started"));
   pinMode(PWDD, OUTPUT);
   pinMode(DIRD, OUTPUT);
   pinMode(PWDG, OUTPUT);
@@ -32,24 +31,42 @@ The code waits the Serial channel to open, and if the lox function does not work
     delay(1);
   }
 
-  Serial.println("Adafruit VL53L0X test");
+  /*
+  Adafruit VL53L0X test
+  */
   if (!cd.begin()) {
-    Serial.println(F("Failed to boot VL53L0X"));
+    Serial.println(F("Failed to boot Captor VL53L0X"));
     while(1);
   }
-  Serial.println("Adafruit VL530X test passed");
+  Serial.println(F("Succeeded to boot Captor VL530X"));
+
+  Serial.println(F("Setup Finished"));
 }
 
 
 void loop() {
-  Serial.println("test loop");
 
   int Dist = cd.distance();
-  Serial.println(Dist);
-  mvt.AvanceForward();
-  delay(1000); 
+  Serial.print(F("Distance Initial: ")); Serial.println(Dist);
 
-  //while ()
+  mvt.AvanceForward(2000);
+
+  while (1) {
+    //mvt.Forward();
+    int Dist = cd.distance();
+    Serial.println(Dist);
+    if (Dist > 150){
+      mvt.Forward();
+    }
+    else if (Dist < 150){
+      mvt.AvanceBackward(2000);
+    }
+   
+  }
+  
+  mvt.Off();
+
+  
 
   /*
     if (measure.RangeStatus != 4) { mvt.Backward();break  }
