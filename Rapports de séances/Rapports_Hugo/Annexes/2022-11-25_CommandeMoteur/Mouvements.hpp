@@ -23,6 +23,7 @@ class Mouvements{
     void AvanceBackward(int temps);
     void AvanceRight(int temps);
     void AvanceLeft(int temps);
+    void Evitement();
 };
 
 #endif
