@@ -9,11 +9,13 @@ I first started by assembling cables to the motors. I then connected the cyt-132
 ![](Annexes/2022-11-25_CarteCommande2.jpeg)
 
 <br />
-I will have to create an Arduino program to operate the cyt-132 which I have found the truth table. 
+
+I will have to create an Arduino program to operate the cyt-132 which I have found the truth table.
 
 ![](Annexes/2022-11-25_CarteCommandeTableau.jpg)
 
 <br />
+
 I have created this script for basic mouvement as moving forward and back.
 
 ![](Annexes/2022-11-25_CodeArduino1.jpg)
