@@ -10,10 +10,10 @@ class Mouvements{
   public:
     Mouvements();
     unsigned long InstantTime;
-    const int PWDD = 10;
-    const int DIRD = 6;
-    const int PWDG = 11;
-    const int DIRG = 7;
+    const int PWDD = 9;
+    const int DIRD = 7;
+    const int PWDG = 10;
+    const int DIRG = 8;
     void Off();
     void Forward();
     void Backward();

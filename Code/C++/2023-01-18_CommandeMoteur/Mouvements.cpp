@@ -2,10 +2,11 @@
 
 Mouvements::Mouvements(){};
 
-/**
+/*
 For the PWD, 255 means 98 rpm
 so 128 is for 49 rpm
 */
+
 void Mouvements::Off(){
   analogWrite(PWDD, 0);
   digitalWrite(DIRD, HIGH);
