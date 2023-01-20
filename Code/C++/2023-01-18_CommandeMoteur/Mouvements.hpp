@@ -10,10 +10,10 @@ class Mouvements{
   public:
     Mouvements();
     unsigned long InstantTime;      //unsigned long permet d'avoir des chiffre allant jusqu'à 2^32 - 1
-    const int PWDD = 9;
-    const int DIRD = 7;
-    const int PWDG = 10;
-    const int DIRG = 8;
+    const int PWDD = 5;
+    const int DIRD = 12;
+    const int PWDG = 6;
+    const int DIRG = 13;
     void Off();
     void Forward();
     void Backward();
