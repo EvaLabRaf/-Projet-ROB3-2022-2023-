@@ -2,14 +2,14 @@
 #define MOUVEMENTS_H
 #include "Arduino.h"
 
-/**
+/*
 
 */
 
 class Mouvements{
   public:
     Mouvements();
-    unsigned long InstantTime;
+    unsigned long InstantTime;      //unsigned long permet d'avoir des chiffre allant jusqu'à 2^32 - 1
     const int PWDD = 9;
     const int DIRD = 7;
     const int PWDG = 10;
