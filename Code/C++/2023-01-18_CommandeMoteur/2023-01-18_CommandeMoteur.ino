@@ -25,7 +25,7 @@ void setup() {
   pinMode(DIRD, OUTPUT);
   pinMode(PWDG, OUTPUT);
   pinMode(DIRG, OUTPUT);
-  //Scanner Setup
+  //Arm servo-motors Setup
   servoinf.attach(9); servosup.attach(10);
   servoinf.write(75); servosup.write(90);
   //Serial Port Setup
@@ -43,27 +43,19 @@ void loop() {
   delay(100);
   int Dist = cd.distance();
   Serial.print(F("Distance Initial: ")); Serial.println(Dist);
-
-  //mvt.AvanceForward(2000);
-  delay(100);
-  //cd.scan(servoinf, servosup);
   
   while (1) {
-    //mvt.Forward();
     int Dist = cd.distance();
     Serial.println(Dist);
-    if (Dist > 150){
+    if (Dist >= 150){         //If nonobstacles are detected, the robot goes forward.
       mvt.Forward();
     }
-    else if (Dist < 150){
-      mvt.AvanceBackward(2000);
+    else if (Dist < 150){     //When an obstacle is detected by the laser, the robot take a step back and scan.
+      mvt.AvanceBackward(1000);
+      cd.scan(servoinf,servosup);
+        //I than have to process the result of the scan to decide how to avoid the obstacle.
     }
    
   }
  
-  /*
-    if (measure.RangeStatus != 4) { mvt.Backward();break  }
-    mvt.Right();
-  */
-
 }

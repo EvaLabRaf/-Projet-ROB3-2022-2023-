@@ -15,6 +15,7 @@ class Capteurdistance : public Adafruit_VL53L0X {
     int scan(Servo servoinf, Servo servosup);
     int servoinfposition=0;
     int servosupposition=0;
+    int scantableau = [5][13]; 
 };
 
 #endif

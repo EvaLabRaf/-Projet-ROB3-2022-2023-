@@ -5,6 +5,7 @@ Mouvements::Mouvements(){};
 /*
 For the PWD, 255 means 98 rpm
 so 128 is for 49 rpm
+By activating or not DIR, we can change the direction of rotation.
 */
 
 void Mouvements::Off(){
