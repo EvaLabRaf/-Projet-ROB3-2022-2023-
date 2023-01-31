@@ -19,14 +19,14 @@ void Mouvements::Forward(){
   analogWrite(PWDD, 64);
   digitalWrite(DIRD, HIGH);
   analogWrite(PWDG, 64);
-  digitalWrite(DIRG, HIGH);
+  digitalWrite(DIRG, LOW);
 }
 
 void Mouvements::Backward(){
   analogWrite(PWDD, 64);
   digitalWrite(DIRD, LOW);
   analogWrite(PWDG, 64);
-  digitalWrite(DIRG, LOW);
+  digitalWrite(DIRG, HIGH);
 }
 
 void Mouvements::Left(){
@@ -50,6 +50,7 @@ void Mouvements::AvanceForward(int temps){
   while ((millis()-InstantTime)<temps) {
     Forward();
   }
+  Off();
 }
 
 void Mouvements::AvanceBackward(int temps){
@@ -59,6 +60,7 @@ void Mouvements::AvanceBackward(int temps){
   while ((millis()-InstantTime)<temps) {
     Backward();
   }
+  Off();
 }
 
 void Mouvements::AvanceLeft(int temps){
@@ -68,6 +70,7 @@ void Mouvements::AvanceLeft(int temps){
   while ((millis()-InstantTime)<temps) {
     Left();
   }
+  Off();
 }
 
 void Mouvements::AvanceRight(int temps){
@@ -77,6 +80,7 @@ void Mouvements::AvanceRight(int temps){
   while ((millis()-InstantTime)<temps) {
     Right();
   }
+  Off();
 }
 
 void Mouvements::Evitement(){}
