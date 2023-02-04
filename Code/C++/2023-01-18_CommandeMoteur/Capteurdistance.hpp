@@ -22,7 +22,8 @@ class Capteurdistance : public Adafruit_VL53L0X {
     int supAngleMin = 80;
     int supAngleMax = 120;
     int supPas = 10;
-    //int scantableau = [5][13]; 
+    int scanTableau[55]; 
+    int i=0;
 };
 
 #endif

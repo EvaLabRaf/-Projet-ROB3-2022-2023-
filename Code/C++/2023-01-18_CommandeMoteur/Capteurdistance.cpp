@@ -15,6 +15,7 @@ int Capteurdistance::distance(){    //This function measure the distance between
 
 int Capteurdistance::scan(Servo servoinf, Servo servosup){    //This function manage the 2 axis arm into angles from 40° in height and 120° on sides.
   Serial.println(F("Processing scan"));
+  int i = 0;
   for (int servoSupPosition = supAngleMin; servoSupPosition <= supAngleMax; servoSupPosition += supPas) {  //height angles 5 positions.
     servosup.write(servoSupPosition);
     delay(100);
@@ -23,10 +24,14 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup){    //This function ma
       delay(150);
       Dist = distance();    //Measure the distance from the obstacle for each position 
       Serial.println(Dist);
+      scanTableau[i]=Dist;
+      i=i+1;
       //Then I have to process the distance and maybe put them in a table.
     }
     delay(300);
+  Serial.println(i); 
   }
+  Serial.println()
   servoinf.write(75);
   servosup.write(90);
 }

@@ -62,6 +62,7 @@ void loop() {
       mvt.Off();
       goBack = false;
       cd.scan(servoinf, servosup);      //I then have to process the result of the scan to decide how to avoid the obstacle.
+      
     }
   }
 
