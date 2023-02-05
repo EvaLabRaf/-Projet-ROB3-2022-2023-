@@ -26,7 +26,6 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup){    //This function ma
       Serial.println(Dist);
       scanTableau[i]=Dist;
       i=i+1;
-      //Then I have to process the distance and maybe put them in a table.
     }
     delay(300);
   Serial.println(i); 
