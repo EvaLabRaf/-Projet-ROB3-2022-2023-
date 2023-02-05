@@ -8,3 +8,11 @@ Je me suis également rendu compte que les vis à l'intérieur de la boîte de p
 
 <br />
 
+J'ai ensuite fini le code du scan afin qu'il stock les mesure qu'il prend dans un tableau qui sera ensuite analysé pour prendre une décision et éviter les obstacles
+
+![](Annexes/2023-02-05_Code.jpg)
+
+<br />
+
+Le code dans le main a été revu afin qu'il soit plus propre et plus optimisé
+
