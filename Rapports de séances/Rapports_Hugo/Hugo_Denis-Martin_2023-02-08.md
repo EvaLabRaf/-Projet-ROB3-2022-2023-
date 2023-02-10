@@ -4,7 +4,7 @@
 
 <br />
 
-J'ai donc décidé de faire un boitier permettant de stocker toutes les cartes électroniques pour optimiser la place sur le robot et mieux manager les câbles. Je vais donc modéliser en 3D une structure qui permet d'accueillir la carte arduino, les 2 cartes de commande de moteur et la carte d'alimentation.
+J'ai donc décidé de faire un boitier permettant de stocker toutes les cartes électroniques pour optimiser la place sur le robot et mieux manager les câbles tout en évitant des problème de court circuit qui pourrait apparaitre. Je vais donc modéliser en 3D une structure qui permet d'accueillir la carte arduino, les 2 cartes de commande de moteur et la carte d'alimentation.
 
 <br />
 
