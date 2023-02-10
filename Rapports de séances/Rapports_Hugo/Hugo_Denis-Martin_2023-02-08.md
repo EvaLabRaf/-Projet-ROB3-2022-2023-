@@ -16,4 +16,24 @@ Pour cela j'ai repris le modèle du boitier que j'avais utilisé pour l'arduino 
 
 <br />
 
-J'ai ensuite assemblé tout les éléments autour du boitier arduino (dans un souci d'esthétisme) en prenant soin de surélever 
+J'ai ensuite assemblé tout les éléments autour du boitier arduino (dans un souci d'esthétisme) en prenant soin de surélever ceux-ci pour faciliter le passage des câble en dessous.
+
+![](Annexes/2023-02-08_BoitierFinal.jpg)
+
+![](Annexes/2023-02-08_BoitierFinal2.jpg)
+
+![](Annexes/2023-02-08_BoitierFinal3.jpg)
+
+<br />
+
+Après impression 3D en PLA on obtient ceci :
+
+![](Annexes/2023-02-08_Boitier.jpg)
+
+![](Annexes/2023-02-08_Boitier2.jpg)
+
+<br />
+
+Et après l'avoir monté sur le robot on a :
+
+![](Annexes/2023-02-08_RobotAssemblé.jpg)
