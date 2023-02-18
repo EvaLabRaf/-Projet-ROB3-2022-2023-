@@ -19,7 +19,7 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup){    //This function ma
   for (int servoSupPosition = supAngleMin; servoSupPosition <= supAngleMax; servoSupPosition += supPas) {  //height angles 5 positions.
     servosup.write(servoSupPosition);
     delay(100);
-    for (int servoInfPosition = infAngleMin; servoInfPosition <= supAngleMax; servoInfPosition += supPas) {  //side angles 13 positions.
+    for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
       servoinf.write(servoInfPosition);
       delay(150);
       Dist = distance();    //Measure the distance from the obstacle for each position 
@@ -30,7 +30,24 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup){    //This function ma
     delay(300);
   Serial.println(i); 
   }
-  Serial.println()
-  servoinf.write(75);
-  servosup.write(90);
+  Serial.println();
+  servoinf.write(65);
+  servosup.write(80);
+}
+
+int Capteurdistance::scantest(Servo servoinf, Servo servosup){
+  Serial.println(F("Processing scan test"));
+  int i = 0;
+  for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
+      servoinf.write(servoInfPosition);
+      delay(1000);
+      Dist = distance();    //Measure the distance from the obstacle for each position 
+      Serial.println(Dist);
+      scanTableau[i]=Dist;
+      i=i+1;
+    }
+    delay(100);
+  Serial.println(F("Scan finished"));
+  servoinf.write(65);
+  servosup.write(80);
 }

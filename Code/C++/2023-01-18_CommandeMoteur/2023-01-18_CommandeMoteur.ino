@@ -31,7 +31,7 @@ void setup() {
   pinMode(DIRG, OUTPUT);
   //Arm servo-motors Setup
   servoinf.attach(9); servosup.attach(10);
-  servoinf.write(75); servosup.write(90);
+  servoinf.write(65); servosup.write(80);
   delay(100);
   //Serial Port Setup
   while (! Serial) {delay(1);}  //This part does a test on the communication channel and the lox function in the Adafruit library. The code waits the Serial channel to open, and if the lox function does not work, the code blocks itself.
@@ -61,9 +61,16 @@ void loop() {
     if (millis() - goBackStartTime > BACK_DURATION){
       mvt.Off();
       goBack = false;
-      cd.scan(servoinf, servosup);      //I then have to process the result of the scan to decide how to avoid the obstacle.
-      
+      cd.scantest(servoinf, servosup);      //I then have to process the result of the scan to decide how to avoid the obstacle.
+      if (cd.scanTableau[0]>cd.scanTableau[2]){
+        mvt.AvanceRight(1000);
+      }
+      else if(cd.scanTableau[2]>cd.scanTableau[0]){
+        mvt.AvanceLeft(1000);        
+      }          
     }
   }
+
+
 
 }
