@@ -28,4 +28,10 @@ Les distances indiquées sur ce tableau ne sont pas celles que je prendrais mais
 
 <br />
 
+![](Annexes/2023-02-14_CodeScanTest.jpg)
+
+![](Annexes/2023-02-14_CodeScanTestHpp.jpg)
+
+<br />
+
 Dès que j'aurais réussi à programmer ceci et qu'il fonctionnera correctement, je passerais à une version avec plus de valeurs de laser pour d'autres angles.
