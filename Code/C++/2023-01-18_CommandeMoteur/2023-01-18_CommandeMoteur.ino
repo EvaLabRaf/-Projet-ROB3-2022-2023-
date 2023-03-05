@@ -47,6 +47,7 @@ void loop() {
   delay(100);
   int Dist = cd.distance();
   Serial.print(F("Distance Initial: ")); Serial.println(Dist);
+  
 
   Serial.println(Dist);                 //If no obstacles are detected and the robot is not going back, the robot goes forward.
   if (Dist >= 150 && !goBack){
@@ -62,15 +63,12 @@ void loop() {
       mvt.Off();
       goBack = false;
       cd.scantest(servoinf, servosup);      //I then have to process the result of the scan to decide how to avoid the obstacle.
-      if (cd.scanTableau[0]>cd.scanTableau[2]){
+      if (cd.scanTableau[0]>cd.scanTableau[2] || cd.scanTableau[0] == cd.scanTableau[2]){
         mvt.AvanceRight(1000);
       }
       else if(cd.scanTableau[2]>cd.scanTableau[0]){
-        mvt.AvanceLeft(1000);        
-      }          
+        mvt.AvanceLeft(1000);
+      }
     }
   }
-
-
-
 }

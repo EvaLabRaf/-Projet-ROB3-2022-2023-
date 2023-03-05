@@ -40,7 +40,7 @@ void Mouvements::Right(){
   analogWrite(PWDD, 0);
   digitalWrite(DIRD, LOW);
   analogWrite(PWDG, 128);
-  digitalWrite(DIRG, HIGH);
+  digitalWrite(DIRG, LOW);
 }
 
 void Mouvements::AvanceForward(int temps){
