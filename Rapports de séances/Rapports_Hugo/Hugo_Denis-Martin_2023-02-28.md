@@ -8,3 +8,8 @@ Je continue le programme pour éviter les murs et obstacles, avant de passer au 
 
 <br />
 
+![](Annexes/2023-02-28_Code1.jpg)
+
+Quand le laser frontal rencontre un objet à moins de 15 cm devant lui, il va reculer et prendre 3 mesures à des angles différents et en fonction de ces résultats il va se tourner et partir d'un autre côté.
+
+J'ai ensuite commencé a adapté ce système avec plus de valeurs d'angles pour éviter certaines situations problèmatiques.
