@@ -40,15 +40,15 @@ int Capteurdistance::scantest(Servo servoinf, Servo servosup){
   int i = 0;
   for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
       servoinf.write(servoInfPosition);
-      delay(1000);
+      delay(500);
       Dist = distance();    //Measure the distance from the obstacle for each position 
       Serial.println(Dist);
       scanTableau[i]=Dist;
-      i=i+1;
+      i=i++;
     }
     delay(100);
 
-	for ( int i = 0; i < lenghtScanTableau; i++ )
+	for (int i = 0; i < lenghtScanTableau; i++)
 	{
 		if ( scanTableau[i] < min_v )
 		{

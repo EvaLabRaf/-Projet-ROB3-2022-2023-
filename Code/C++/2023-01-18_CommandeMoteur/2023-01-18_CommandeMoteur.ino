@@ -47,10 +47,8 @@ void loop() {
   delay(100);
   int Dist = cd.distance();
   Serial.print(F("Distance Initial: ")); Serial.println(Dist);
-  
 
-  Serial.println(Dist);                 //If no obstacles are detected and the robot is not going back, the robot goes forward.
-  if (Dist >= 150 && !goBack){
+  if (Dist >= 150 && !goBack){      //If no obstacles are detected and the robot is not going back, the robot goes forward.
     mvt.Forward();
   } 
   else if (Dist < 150 && !goBack){      //When an obstacle is detected by the laser and the robot is not going back, the robot take a starts going back.
@@ -68,13 +66,14 @@ void loop() {
       /*
       If the distance measured by the laser on the left side is superior to the right's one or if those distance are egale, 
       the robot will rotate at 90° on the right
-      */        
+      */     
+    
         mvt.AvanceRight(1000);
       }
       else if(cd.scanTableau[8]>cd.scanTableau[0]){
-        /*
-        If the distance measured by the laser on the left side is inferior to the right's one, the robot will rotate at 90° on the left
-        */
+        
+        //If the distance measured by the laser on the left side is inferior to the right's one, the robot will rotate at 90° on the left
+        
         mvt.AvanceLeft(1000);
       }
     }
