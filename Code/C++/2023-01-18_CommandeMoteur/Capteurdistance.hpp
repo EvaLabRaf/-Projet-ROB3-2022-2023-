@@ -17,13 +17,16 @@ class Capteurdistance : public Adafruit_VL53L0X {
     int servoInfPosition=0;
     int servoSupPosition=0;
     int Dist;
+    static const int lenghtScanTableau = 9;
     int infAngleMin = 1;
     int infAngleMax = 129;
     int infPas = 16;
     int supAngleMin = 80;
     int supAngleMax = 120;
     int supPas = 10;
-    int scanTableau[9]; 
+    int scanTableau[lenghtScanTableau]; 
+    int min_v = 9000;
+	  int min_i = 0;
     int i=0;
 };
 

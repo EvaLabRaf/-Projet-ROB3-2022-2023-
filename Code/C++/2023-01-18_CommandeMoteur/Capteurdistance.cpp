@@ -47,6 +47,19 @@ int Capteurdistance::scantest(Servo servoinf, Servo servosup){
       i=i+1;
     }
     delay(100);
+
+	for ( int i = 0; i < lenghtScanTableau; i++ )
+	{
+		if ( scanTableau[i] < min_v )
+		{
+			min_v = scanTableau[i];
+			min_i = i;
+		}
+  }
+  Serial.print("La valeur min est : ");
+  Serial.println(min_v);
+  Serial.print("Elle est en position ");
+  Serial.println(min_i);
   Serial.println(F("Scan finished"));
   servoinf.write(65);
   servosup.write(80);
