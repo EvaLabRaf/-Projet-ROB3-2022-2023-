@@ -48,6 +48,9 @@ void loop() {
   int Dist = cd.distance();
   Serial.print(F("Distance Initial: ")); Serial.println(Dist);
 
+
+
+/*
   if (Dist >= 150 && !goBack){      //If no obstacles are detected and the robot is not going back, the robot goes forward.
     mvt.Forward();
   } 
@@ -63,10 +66,10 @@ void loop() {
       cd.scantest(servoinf, servosup);      //I then have to process the result of the scan to decide how to avoid the obstacle.
       
       if (cd.scanTableau[0]>cd.scanTableau[8] || cd.scanTableau[0] == cd.scanTableau[8]){
-      /*
-      If the distance measured by the laser on the left side is superior to the right's one or if those distance are egale, 
-      the robot will rotate at 90° on the right
-      */     
+      
+      //If the distance measured by the laser on the left side is superior to the right's one or if those distance are egale, 
+      //the robot will rotate at 90° on the right
+           
     
         mvt.AvanceRight(1000);
       }
@@ -78,4 +81,6 @@ void loop() {
       }
     }
   }
+  //Fais quelque chose
+  */
 }

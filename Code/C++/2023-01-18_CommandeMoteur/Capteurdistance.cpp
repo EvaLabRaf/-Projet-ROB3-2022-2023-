@@ -39,14 +39,14 @@ int Capteurdistance::scantest(Servo servoinf, Servo servosup){
   Serial.println(F("Processing scan test"));
   int i = 0;
   for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
-      servoinf.write(servoInfPosition);
-      delay(500);
-      Dist = distance();    //Measure the distance from the obstacle for each position 
-      Serial.println(Dist);
-      scanTableau[i]=Dist;
-      i=i++;
-    }
-    delay(100);
+    servoinf.write(servoInfPosition);
+    delay(500);
+    Dist = distance();    //Measure the distance from the obstacle for each position 
+    Serial.println(Dist);
+    scanTableau[i]=Dist;
+    i=i++;
+  }
+  delay(100);
 
 	for (int i = 0; i < lenghtScanTableau; i++)
 	{
