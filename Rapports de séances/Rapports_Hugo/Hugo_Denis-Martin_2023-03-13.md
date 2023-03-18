@@ -12,3 +12,8 @@ Durant cette séance, j'ai continué le nouveau code du robot. L'idée derrière
 
 ![](Annexes/2023-03-18_CodeLoop2.jpg)
 
+<br />
+
+J'ai rajouté un programme dans la library CapteurDistance, qui prend une valeur de distance pour un angle qui change a chaque passage de la loop
+
+![](Annexes/2023-03-18_CodeScan.jpg)
