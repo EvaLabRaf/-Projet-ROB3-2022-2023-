@@ -16,9 +16,13 @@ int DIRG = 13;
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
 
-const int BACK_DURATION = 1000;       //Time will going back when detecting an obstacle.
+const int BACK_DURATION = 250;       //Time will going back when detecting an obstacle.
 bool goBack = false;                  //goBack indicate if the robot is going back.
 unsigned long goBackStartTime = 0;
+//int anglePosition = 0;
+bool scanning = false;
+unsigned long startTime = 0;
+int newAngle =0;
 
 void setup() {
   Serial.begin(9600);
@@ -43,13 +47,38 @@ void setup() {
 }
 
 
+
 void loop() {
-  delay(100);
-  int Dist = cd.distance();
-  Serial.print(F("Distance Initial: ")); Serial.println(Dist);
+  //delay(100);
+  int Dist = 0;
+  //Serial.print(F("Distance Initial: ")); Serial.println(Dist);
+  //Serial.println(F("Loop test"));
 
+  mvt.Forward();
 
-
+  
+  if (scanning == true && millis() - startTime > BACK_DURATION)
+    {
+      Serial.println(F("A"));
+      scanning = false;
+      newAngle = cd.getAngle();
+      newAngle++;
+      cd.setAngle(newAngle);
+      Serial.println(newAngle);
+      if (Dist < 50)
+        {
+          Serial.println(F("B"));
+          //mvt.Backward();
+          //delay(100);
+        }
+    }
+  else if (scanning == false)
+    {
+      Serial.println(F("C"));
+      scanning = true;
+      startTime = millis();
+      cd.continuousScan(servoinf);
+    }
 /*
   if (Dist >= 150 && !goBack){      //If no obstacles are detected and the robot is not going back, the robot goes forward.
     mvt.Forward();
@@ -84,3 +113,13 @@ void loop() {
   //Fais quelque chose
   */
 }
+/*
+CapteurDeDistance cGauche
+CapteurDeDistance cDroite
+
+int anglePositionMain = cd.getAngle();
+cd.setangle(anglepositionMain);
+
+c1.getAngleMin() -> 1
+c1.setAngleMin(nouvelAngleMin) 
+*/

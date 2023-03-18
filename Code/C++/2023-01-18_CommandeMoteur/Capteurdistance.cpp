@@ -5,6 +5,13 @@ Capteurdistance::Capteurdistance(){};
 /*
 This library is used to manage the laser captor.
 */
+int Capteurdistance::getAngle(){
+  return anglePosition;
+}
+
+void Capteurdistance::setAngle(int angle){
+  anglePosition = angle;
+}
 
 int Capteurdistance::distance(){    //This function measure the distance between the laser and the object in front of it.
   VL53L0X_RangingMeasurementData_t measure;   //Create the class measure from the Adafruit library.
@@ -63,4 +70,28 @@ int Capteurdistance::scantest(Servo servoinf, Servo servosup){
   Serial.println(F("Scan finished"));
   servoinf.write(65);
   servosup.write(80);
+}
+
+int Capteurdistance::continuousScan(Servo servoinf){
+  Serial.println(F("Processing continuousScan"));
+  int i = 0;
+
+  Serial.print("anglePosition vaut : "); Serial.println(anglePosition);
+
+  if (anglePosition >= lenghtScanTableau)
+    {
+      anglePosition = 0;
+      Serial.println("Test if");
+    }
+
+  
+  while (i <= anglePosition)
+    {
+      servoInfPosition = infAngleMin + i * infPas;
+      i++;
+    }
+  
+  servoinf.write(servoInfPosition);
+  Dist = distance();
+  Serial.println(Dist);
 }
