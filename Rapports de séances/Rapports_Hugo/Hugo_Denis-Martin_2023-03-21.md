@@ -3,4 +3,3 @@
 ### Goal of the session: Artificial intelligence applied to obstacle avoidance 
 
 <br />
-
