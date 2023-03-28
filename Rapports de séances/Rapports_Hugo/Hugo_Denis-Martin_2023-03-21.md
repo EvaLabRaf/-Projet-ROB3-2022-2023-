@@ -3,3 +3,5 @@
 ### Goal of the session: Artificial intelligence applied to obstacle avoidance 
 
 <br />
+
+J'ai avancé sur le code.
