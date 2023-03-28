@@ -13,6 +13,10 @@ void Capteurdistance::setAngle(int angle){
   anglePosition = angle;
 }
 
+int Capteurdistance::getDist(){
+  return dist;
+}
+
 int Capteurdistance::distance(){    //This function measure the distance between the laser and the object in front of it.
   VL53L0X_RangingMeasurementData_t measure;   //Create the class measure from the Adafruit library.
   rangingTest(&measure, false);               //Function from Adafruit to measure.
@@ -29,9 +33,9 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup){    //This function ma
     for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
       servoinf.write(servoInfPosition);
       delay(150);
-      Dist = distance();    //Measure the distance from the obstacle for each position 
-      Serial.println(Dist);
-      scanTableau[i]=Dist;
+      dist = distance();    //Measure the distance from the obstacle for each position 
+      Serial.println(dist);
+      scanTableau[i]=dist;
       i=i+1;
     }
     delay(300);
@@ -48,9 +52,9 @@ int Capteurdistance::scantest(Servo servoinf, Servo servosup){
   for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
     servoinf.write(servoInfPosition);
     delay(500);
-    Dist = distance();    //Measure the distance from the obstacle for each position 
-    Serial.println(Dist);
-    scanTableau[i]=Dist;
+    dist = distance();    //Measure the distance from the obstacle for each position 
+    Serial.println(dist);
+    scanTableau[i]=dist;
     i=i++;
   }
   delay(100);
@@ -80,8 +84,7 @@ int Capteurdistance::continuousScan(Servo servoinf){
 
   if (anglePosition >= lenghtScanTableau)
     {
-      anglePosition = 0;
-      Serial.println("Test if");
+      anglePosition = -1;
     }
 
   
@@ -92,6 +95,7 @@ int Capteurdistance::continuousScan(Servo servoinf){
     }
   
   servoinf.write(servoInfPosition);
-  Dist = distance();
-  Serial.println(Dist);
+  dist = distance();
+  Serial.println(dist);
+  return(dist);
 }

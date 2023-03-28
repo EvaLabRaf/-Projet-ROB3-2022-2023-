@@ -82,8 +82,3 @@ void Mouvements::AvanceRight(int temps){
   }
   Off();
 }
-
-void Mouvements::Evitement(){
-
-  
-}

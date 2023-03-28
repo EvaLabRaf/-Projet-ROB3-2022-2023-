@@ -20,14 +20,14 @@ const int BACK_DURATION = 250;       //Time will going back when detecting an ob
 bool goBack = false;                  //goBack indicate if the robot is going back.
 unsigned long goBackStartTime = 0;
 //int anglePosition = 0;
-bool scanning = false;
+bool scanning = true;
 unsigned long startTime = 0;
 int newAngle =0;
+const int MOUVEMENT_SERVO = 250;
 
 void setup() {
   Serial.begin(9600);
   Serial.println(F("Setup Started"));
-  int Dist;
   //Motors Setup
   pinMode(PWDD, OUTPUT);
   pinMode(DIRD, OUTPUT);
@@ -41,7 +41,7 @@ void setup() {
   while (! Serial) {delay(1);}  //This part does a test on the communication channel and the lox function in the Adafruit library. The code waits the Serial channel to open, and if the lox function does not work, the code blocks itself.
   //Laser Captor VL53L0X Setup
   if (!cd.begin()) {Serial.println(F("Failed to boot Captor VL53L0X")); while(1);}
-
+  int distancelaser;
   Serial.println(F("Succeeded to boot Captor VL530X"));
   Serial.println(F("Setup Finished"));
 }
@@ -50,35 +50,44 @@ void setup() {
 
 void loop() {
   //delay(100);
-  int Dist = 0;
   //Serial.print(F("Distance Initial: ")); Serial.println(Dist);
   //Serial.println(F("Loop test"));
 
   mvt.Forward();
 
-  
-  if (scanning == true && millis() - startTime > BACK_DURATION)
+  //Serial.print(F("Valeur de scanning : ")); Serial.println(scanning);
+
+  if (scanning == true && millis() - startTime > MOUVEMENT_SERVO)
     {
       Serial.println(F("A"));
-      scanning = false;
+      cd.continuousScan(servoinf);
       newAngle = cd.getAngle();
       newAngle++;
       cd.setAngle(newAngle);
       Serial.println(newAngle);
-      if (Dist < 50)
+      
+      int distancelaser = cd.getDist();
+      Serial.print(F("dist vaut :")); Serial.println(distancelaser);
+      if (distancelaser < 150)
         {
           Serial.println(F("B"));
-          //mvt.Backward();
-          //delay(100);
+          mvt.AvanceBackward(1000);
+          mvt.AvanceRight(1000);
+          cd.setAngle(4);
         }
+
+      //scanning = false;
+      startTime = millis();      
     }
+  /*
   else if (scanning == false)
     {
       Serial.println(F("C"));
       scanning = true;
       startTime = millis();
-      cd.continuousScan(servoinf);
-    }
+   
+    } 
+    */  
 /*
   if (Dist >= 150 && !goBack){      //If no obstacles are detected and the robot is not going back, the robot goes forward.
     mvt.Forward();
