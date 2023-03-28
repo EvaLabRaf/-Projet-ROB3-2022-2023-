@@ -54,7 +54,7 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup) {  //This function man
 int Capteurdistance::scanSweep(Servo servoinf) {
   Serial.println(F("Processing scan test"));
   int i = 0;
-  for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
+  for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {
     servoinf.write(servoInfPosition);
     delay(150);
     dist = distance();  //Measure the distance from the obstacle for each position
