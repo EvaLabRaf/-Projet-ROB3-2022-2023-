@@ -9,11 +9,6 @@ int Capteurdistance::getAngle() {
   return anglePosition;
 }
 
-/**
- * @brief 
- * 
- * @param angle 
- */
 void Capteurdistance::setAngle(int angle) {
   anglePosition = angle;
 }
@@ -110,23 +105,22 @@ int Capteurdistance::continuousScan(Servo servoinf) {
 }
 
 int Capteurdistance::angleIncrement() {
-  int i = 0;
-
-  if (sensScan = true) {
+  Serial.print("anglePosition: "); Serial.println(anglePosition);
+  Serial.print("sensScan: "); Serial.println(sensScan);
+  
+  if (sensScan == true) {
     anglePosition++;
-
-    if (anglePosition > lenghtScanTableau) {
+    if (anglePosition >= lenghtScanTableau + 1) {
       sensScan = false;
-      anglePosition = anglePosition - 1;
+      anglePosition--;
     }
   }
   
-  else if (sensScan = false) {
-    anglePosition--;
-
-    if (anglePosition < -1) {
+  else if (sensScan == false) {
+    anglePosition=anglePosition - 1;
+    if (anglePosition < 0) {
       sensScan = true;
-      anglePosition = anglePosition + 1;
+      anglePosition++;
     }
   }  
 }

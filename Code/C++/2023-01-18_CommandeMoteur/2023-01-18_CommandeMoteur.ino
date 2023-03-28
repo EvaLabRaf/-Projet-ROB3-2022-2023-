@@ -17,7 +17,7 @@ Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
 
 unsigned long startTime = 0;
-int newAngle = 0;
+//int newAngle = 0;
 int positionMin = 0;
 const int MOUVEMENT_SERVO = 200;
 
