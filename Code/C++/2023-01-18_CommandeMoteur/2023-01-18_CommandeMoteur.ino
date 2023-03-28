@@ -9,21 +9,17 @@ Servo servosup;
 //Moteurs Droit
 int PWDD = 5;
 int DIRD = 12;
-//Moteurs Gauche  
+//Moteurs Gauche
 int PWDG = 6;
 int DIRG = 13;
 //Library
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
 
-const int BACK_DURATION = 250;       //Time will going back when detecting an obstacle.
-bool goBack = false;                  //goBack indicate if the robot is going back.
-unsigned long goBackStartTime = 0;
-//int anglePosition = 0;
-bool scanning = true;
 unsigned long startTime = 0;
-int newAngle =0;
-const int MOUVEMENT_SERVO = 250;
+int newAngle = 0;
+int positionMin = 0;
+const int MOUVEMENT_SERVO = 200;
 
 void setup() {
   Serial.begin(9600);
@@ -34,13 +30,19 @@ void setup() {
   pinMode(PWDG, OUTPUT);
   pinMode(DIRG, OUTPUT);
   //Arm servo-motors Setup
-  servoinf.attach(9); servosup.attach(10);
-  servoinf.write(65); servosup.write(80);
+  servoinf.attach(9);
+  servosup.attach(10);
+  servoinf.write(65);
+  servosup.write(80);
   delay(100);
   //Serial Port Setup
-  while (! Serial) {delay(1);}  //This part does a test on the communication channel and the lox function in the Adafruit library. The code waits the Serial channel to open, and if the lox function does not work, the code blocks itself.
+  while (!Serial) { delay(1); }  //This part does a test on the communication channel and the lox function in the Adafruit library. The code waits the Serial channel to open, and if the lox function does not work, the code blocks itself.
   //Laser Captor VL53L0X Setup
-  if (!cd.begin()) {Serial.println(F("Failed to boot Captor VL53L0X")); while(1);}
+  if (!cd.begin()) {
+    Serial.println(F("Failed to boot Captor VL53L0X"));
+    while (1)
+      ;
+  }
   int distancelaser;
   Serial.println(F("Succeeded to boot Captor VL530X"));
   Serial.println(F("Setup Finished"));
@@ -49,86 +51,32 @@ void setup() {
 
 
 void loop() {
-  //delay(100);
-  //Serial.print(F("Distance Initial: ")); Serial.println(Dist);
-  //Serial.println(F("Loop test"));
 
   mvt.Forward();
 
-  //Serial.print(F("Valeur de scanning : ")); Serial.println(scanning);
+  if (millis() - startTime > MOUVEMENT_SERVO) {
+    cd.continuousScan(servoinf);
+    cd.angleIncrement();
+    int distancelaser = cd.getDist();
+    Serial.print(F("dist vaut :"));
+    Serial.println(distancelaser);
 
-  if (scanning == true && millis() - startTime > MOUVEMENT_SERVO)
-    {
-      Serial.println(F("A"));
-      cd.continuousScan(servoinf);
-      newAngle = cd.getAngle();
-      newAngle++;
-      cd.setAngle(newAngle);
-      Serial.println(newAngle);
-      
-      int distancelaser = cd.getDist();
-      Serial.print(F("dist vaut :")); Serial.println(distancelaser);
-      if (distancelaser < 150)
-        {
-          Serial.println(F("B"));
-          mvt.AvanceBackward(1000);
-          mvt.AvanceRight(1000);
-          cd.setAngle(4);
-        }
+    if (distancelaser < 150) {
+      mvt.AvanceBackward(1000);
+      cd.scanSweep(servoinf);
+      positionMin = cd.getMin();
 
-      //scanning = false;
-      startTime = millis();      
-    }
-  /*
-  else if (scanning == false)
-    {
-      Serial.println(F("C"));
-      scanning = true;
-      startTime = millis();
-   
-    } 
-    */  
-/*
-  if (Dist >= 150 && !goBack){      //If no obstacles are detected and the robot is not going back, the robot goes forward.
-    mvt.Forward();
-  } 
-  else if (Dist < 150 && !goBack){      //When an obstacle is detected by the laser and the robot is not going back, the robot take a starts going back.
-    goBack = true;
-    goBackStartTime = millis();
-    mvt.Backward(); 
-  } 
-  else if(goBack){                      //When the robot is going back, he will stop himself after the time indicated by BACK_DURATION and process a scan                      
-    if (millis() - goBackStartTime > BACK_DURATION){
-      mvt.Off();
-      goBack = false;
-      cd.scantest(servoinf, servosup);      //I then have to process the result of the scan to decide how to avoid the obstacle.
-      
-      if (cd.scanTableau[0]>cd.scanTableau[8] || cd.scanTableau[0] == cd.scanTableau[8]){
-      
-      //If the distance measured by the laser on the left side is superior to the right's one or if those distance are egale, 
-      //the robot will rotate at 90° on the right
-           
-    
-        mvt.AvanceRight(1000);
-      }
-      else if(cd.scanTableau[8]>cd.scanTableau[0]){
-        
-        //If the distance measured by the laser on the left side is inferior to the right's one, the robot will rotate at 90° on the left
-        
+      if (positionMin <= 4) {
         mvt.AvanceLeft(1000);
       }
+
+      else {
+        mvt.AvanceRight(1000);
+      }
+
+      cd.setAngle(4);
     }
+
+    startTime = millis();
   }
-  //Fais quelque chose
-  */
 }
-/*
-CapteurDeDistance cGauche
-CapteurDeDistance cDroite
-
-int anglePositionMain = cd.getAngle();
-cd.setangle(anglepositionMain);
-
-c1.getAngleMin() -> 1
-c1.setAngleMin(nouvelAngleMin) 
-*/
