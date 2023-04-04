@@ -30,7 +30,7 @@ int Capteurdistance::distance() {            //This function measure the distanc
 }
 
 int Capteurdistance::scan(Servo servoinf, Servo servosup) {  //This function manage the 2 axis arm into angles from 40° in height and 120° on sides.
-  Serial.println(F("Processing scan"));
+  Serial.println(F("==> scan"));
   int i = 0;
   for (int servoSupPosition = supAngleMin; servoSupPosition <= supAngleMax; servoSupPosition += supPas) {  //height angles 5 positions.
     servosup.write(servoSupPosition);
@@ -52,7 +52,7 @@ int Capteurdistance::scan(Servo servoinf, Servo servosup) {  //This function man
 }
 
 int Capteurdistance::scanSweep(Servo servoinf) {
-  Serial.println(F("Processing scanSweep"));
+  Serial.println(F("==> scanSweep"));
   int i = 0;
   for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {
     servoinf.write(servoInfPosition);
@@ -68,9 +68,9 @@ int Capteurdistance::scanSweep(Servo servoinf) {
   }
 
   for (int j = 0; j < lenghtScanTableau; j++) {
-    Serial.print(F("La valeur de i vaut: "));
-    Serial.println(j);
-    Serial.print(F("La valeur de scanTableau vaut: "));
+    Serial.print(F("La valeur de i = "));
+    Serial.print(j);
+    Serial.print(F(" est : "));
     Serial.println(scanTableau[j]);
     if (scanTableau[j] < min_v) {
       min_v = scanTableau[j];
@@ -78,16 +78,16 @@ int Capteurdistance::scanSweep(Servo servoinf) {
     }
   }
 
-  Serial.print("La valeur min est : ");
-  Serial.println(min_v);
-  Serial.print("Elle est en position ");
+  Serial.print("La valeur min est ");
+  Serial.print(min_v);
+  Serial.print(" et elle est en position ");
   Serial.println(min_i);
   Serial.println(F("Scan finished"));
   servoinf.write(65);
 }
 
 int Capteurdistance::continuousScan(Servo servoinf) {
-  Serial.println(F("Processing continuousScan"));
+  Serial.println(F("==> continuousScan"));
   int i = 0;
 
   Serial.print("anglePosition vaut : ");
