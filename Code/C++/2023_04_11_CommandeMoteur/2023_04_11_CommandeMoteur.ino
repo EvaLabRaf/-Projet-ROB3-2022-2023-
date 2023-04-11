@@ -5,7 +5,6 @@
 
 //Servo
 Servo servoinf;
-//Servo servosup;
 //Moteurs Droit
 int PWDD = 5;
 int DIRD = 12;
@@ -17,7 +16,6 @@ Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
 
 unsigned long startTime = 0;
-//int newAngle = 0;
 int positionMin = 0;
 const int DEPLACEMENT_SERVO = 100;
 
@@ -31,9 +29,7 @@ void setup() {
   pinMode(DIRG, OUTPUT);
   //Arm servo-motors Setup
   servoinf.attach(9);
-  servosup.attach(10);
   servoinf.write(65);
-  servosup.write(80);
   delay(100);
   //Serial Port Setup
   while (!Serial) { delay(1); }  //This part does a test on the communication channel and the lox function in the Adafruit library. The code waits the Serial channel to open, and if the lox function does not work, the code blocks itself.
