@@ -8,7 +8,7 @@ Durant cette séance j'ai avancé sur l'utilisation du GPS.
 
 <br />
 
-J'ai tout d'abord soudé des raccords sur les fils du GPS pour pouvoir les connecter aux différents composants du robot, à savoir la carte arduino pour le moment, je n'utilise pas les cables orange et blanc qui correspondent à d'autre option du module.
+J'ai tout d'abord soudé des raccords sur les fils du GPS pour pouvoir les connecter aux différents composants du robot, à savoir la carte arduino pour le moment, je n'utilise pas les cables orange et blanc qui correspondent à d'autre option du module (SDA et SCL).
 
 <br />
 
