@@ -8,77 +8,77 @@ so 128 is for 49 rpm
 By activating or not DIR, we can change the direction of rotation.
 */
 
-void Mouvements::Off() {
+void Mouvements::off() {
   analogWrite(PWDD, 0);
   digitalWrite(DIRD, HIGH);
   analogWrite(PWDG, 0);
   digitalWrite(DIRG, HIGH);
 }
 
-void Mouvements::Forward() {
+void Mouvements::forward() {
   analogWrite(PWDD, 32);
   digitalWrite(DIRD, HIGH);
   analogWrite(PWDG, 32);
   digitalWrite(DIRG, LOW);
 }
 
-void Mouvements::Backward() {
+void Mouvements::backward() {
   analogWrite(PWDD, 32);
   digitalWrite(DIRD, LOW);
   analogWrite(PWDG, 32);
   digitalWrite(DIRG, HIGH);
 }
 
-void Mouvements::Left() {
+void Mouvements::left() {
   analogWrite(PWDD, 128);
   digitalWrite(DIRD, HIGH);
   analogWrite(PWDG, 0);
   digitalWrite(DIRG, LOW);
 }
 
-void Mouvements::Right() {
+void Mouvements::right() {
   analogWrite(PWDD, 0);
   digitalWrite(DIRD, LOW);
   analogWrite(PWDG, 128);
   digitalWrite(DIRG, LOW);
 }
 
-void Mouvements::AvanceForward(int temps) {
-  Serial.println(F("Forward"));
+void Mouvements::avanceForward(int temps) {
+  Serial.println(F("==> avanceForward"));
   InstantTime = millis();
-  Serial.println(InstantTime);
+  //Serial.println(InstantTime);
   while ((millis() - InstantTime) < temps) {
-    Forward();
+    forward();
   }
-  Off();
+  off();
 }
 
-void Mouvements::AvanceBackward(int temps) {
-  Serial.println(F("Backward"));
+void Mouvements::avanceBackward(int temps) {
+  Serial.println(F("==> avanceBackward"));
   InstantTime = millis();
-  Serial.println(InstantTime);
+  //Serial.println(InstantTime);
   while ((millis() - InstantTime) < temps) {
-    Backward();
+    backward();
   }
-  Off();
+  off();
 }
 
-void Mouvements::AvanceLeft(int temps) {
-  Serial.println(F("Forward"));
+void Mouvements::avanceLeft(int temps) {
+  Serial.println(F("==> avanceLeft"));
   InstantTime = millis();
-  Serial.println(InstantTime);
+  //Serial.println(InstantTime);
   while ((millis() - InstantTime) < temps) {
-    Left();
+    left();
   }
-  Off();
+  off();
 }
 
-void Mouvements::AvanceRight(int temps) {
-  Serial.println(F("Forward"));
+void Mouvements::avanceRight(int temps) {
+  Serial.println(F("==> avanceRight"));
   InstantTime = millis();
-  Serial.println(InstantTime);
+  //Serial.println(InstantTime);
   while ((millis() - InstantTime) < temps) {
-    Right();
+    right();
   }
-  Off();
+  off();
 }
