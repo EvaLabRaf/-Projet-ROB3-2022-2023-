@@ -42,7 +42,7 @@ void Mouvements::Right() {
   analogWrite(PWDG, 128);
   digitalWrite(DIRG, LOW);
 }
-
+/*
 void Mouvements::AvanceForward(int temps) {
   Serial.println(F("Forward"));
   InstantTime = millis();
@@ -52,6 +52,7 @@ void Mouvements::AvanceForward(int temps) {
   }
   Off();
 }
+*/
 
 void Mouvements::AvanceBackward(int temps) {
   Serial.println(F("Forward"));
