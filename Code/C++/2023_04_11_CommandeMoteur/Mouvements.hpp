@@ -14,15 +14,15 @@ public:
   const int DIRD = 12;
   const int PWDG = 6;
   const int DIRG = 13;
-  void Off();
-  void Forward();
-  void Backward();
-  void Left();
-  void Right();
-  void AvanceForward(int temps);
-  void AvanceBackward(int temps);
-  void AvanceRight(int temps);
-  void AvanceLeft(int temps);
+  void off();
+  void forward();
+  void backward();
+  void left();
+  void right();
+  void avanceForward(int temps);
+  void avanceBackward(int temps);
+  void avanceRight(int temps);
+  void avanceLeft(int temps);
 };
 
 #endif

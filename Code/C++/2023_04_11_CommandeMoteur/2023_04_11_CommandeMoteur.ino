@@ -48,7 +48,7 @@ void setup() {
 
 void loop() {
 
-  mvt.Forward();
+  mvt.forward();
 
   if (millis() - startTime > DEPLACEMENT_SERVO) {
     cd.continuousScan(servoinf);
@@ -59,18 +59,16 @@ void loop() {
 
     if (distancelaser < 200) {
       Serial.println(F("Object in range"));
-      mvt.AvanceBackward(1000);
+      mvt.avanceBackward(1000);
       cd.scanSweep(servoinf);
       positionMin = cd.getMin();
 
       if (positionMin <= 4) {
-        mvt.AvanceLeft(1000);
-        Serial.println(F("Dodge to the right"));
+        mvt.avanceLeft(1000);
       }
 
       else {
-        mvt.AvanceRight(1000);
-        Serial.println(F("Dodge to the left"));
+        mvt.avanceRight(1000);
       }
 
       cd.setAngle(4);
