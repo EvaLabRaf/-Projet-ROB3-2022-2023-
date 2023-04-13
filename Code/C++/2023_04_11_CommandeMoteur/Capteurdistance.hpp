@@ -16,7 +16,6 @@ public:
   void setAngle(int angle);
   int getDist();
   int getMin();
-  int scan(Servo servoinf, Servo servosup);
   int scanSweep(Servo servoinf);
   int continuousScan(Servo servoinf);
   int angleIncrement();

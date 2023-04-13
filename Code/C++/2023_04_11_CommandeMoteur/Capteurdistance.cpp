@@ -29,28 +29,6 @@ int Capteurdistance::distance() {            //This function measure the distanc
   Serial.println(measure.RangeMilliMeter);
 }
 
-int Capteurdistance::scan(Servo servoinf, Servo servosup) {  //This function manage the 2 axis arm into angles from 40° in height and 120° on sides.
-  Serial.println(F("==> scan"));
-  int i = 0;
-  for (int servoSupPosition = supAngleMin; servoSupPosition <= supAngleMax; servoSupPosition += supPas) {  //height angles 5 positions.
-    servosup.write(servoSupPosition);
-    delay(100);
-    for (int servoInfPosition = infAngleMin; servoInfPosition <= infAngleMax; servoInfPosition += infPas) {  //side angles 13 positions.
-      servoinf.write(servoInfPosition);
-      delay(150);
-      dist = distance();  //Measure the distance from the obstacle for each position
-      Serial.println(dist);
-      scanTableau[i] = dist;
-      i = i + 1;
-    }
-    delay(300);
-    Serial.println(i);
-  }
-  Serial.println();
-  servoinf.write(65);
-  servosup.write(80);
-}
-
 int Capteurdistance::scanSweep(Servo servoinf) {
   Serial.println(F("==> scanSweep"));
   int i = 0;
@@ -82,16 +60,17 @@ int Capteurdistance::scanSweep(Servo servoinf) {
   Serial.print(min_v);
   Serial.print(" et elle est en position ");
   Serial.println(min_i);
-  Serial.println(F("Scan finished"));
+  Serial.println(F("==> scanSweep finished"));
   servoinf.write(65);
 }
 
 int Capteurdistance::continuousScan(Servo servoinf) {
-  Serial.println(F("==> continuousScan"));
   int i = 0;
-
+  /*
+  Serial.println(F("==> continuousScan"));
   Serial.print("anglePosition vaut : ");
   Serial.println(anglePosition);
+  */
 
   while (i <= anglePosition) {
     servoInfPosition = infAngleMin + i * infPas;
@@ -100,7 +79,7 @@ int Capteurdistance::continuousScan(Servo servoinf) {
 
   servoinf.write(servoInfPosition);
   dist = distance();
-  Serial.println(dist);
+  //Serial.println(dist);
   return (dist);
 }
 

@@ -54,20 +54,23 @@ void loop() {
     cd.continuousScan(servoinf);
     cd.angleIncrement();
     int distancelaser = cd.getDist();
-    Serial.print(F("dist vaut :"));
-    Serial.println(distancelaser);
+    //Serial.print(F("dist vaut :"));
+    //Serial.println(distancelaser);
 
     if (distancelaser < 200) {
+      Serial.println(F("Object in range"));
       mvt.AvanceBackward(1000);
       cd.scanSweep(servoinf);
       positionMin = cd.getMin();
 
       if (positionMin <= 4) {
         mvt.AvanceLeft(1000);
+        Serial.println(F("Dodge to the right"));
       }
 
       else {
         mvt.AvanceRight(1000);
+        Serial.println(F("Dodge to the left"));
       }
 
       cd.setAngle(4);
