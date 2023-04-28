@@ -19,7 +19,7 @@ int interupteur = 7;
 //Library
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
-Gps gs = Gps();
+Gps gps = Gps();
 
 unsigned long startTime = 0;
 int positionMin = 0;
@@ -57,7 +57,8 @@ void setup() {
   int distancelaser;
   Serial.println(F("Succeeded to boot Captor VL530X"));
   Serial.println(F("Setup Finished"));
-}
+  gps.begin();
+  }
 
 
 
