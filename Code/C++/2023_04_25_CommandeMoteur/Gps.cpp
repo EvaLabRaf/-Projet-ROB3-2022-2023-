@@ -2,14 +2,6 @@
 
 Gps::Gps() : ss(RXPin, TXPin) {}
 
-void Gps::begin() {
-  Serial.begin(9600);
-  ss.begin(GPSBaud);
-  Serial.println(F("Latitude   Longitude"));
-  Serial.println(F("(deg)      (deg)    "));
-  Serial.println(F("--------------------"));
-}
-
 void Gps::loop() {
   printFloat(gps.location.lat(), gps.location.isValid(), 11, 6);
   printFloat(gps.location.lng(), gps.location.isValid(), 12, 6);

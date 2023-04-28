@@ -15,21 +15,20 @@ int DIRD = 12;
 int PWDG = 6;
 int DIRG = 13;
 //Interupteur
-int interupteur = 7;
+int switchgps = 7;
 //Library
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
-//Gps gps = Gps();
-Gps gps(RXPin, TXPin, GPSBaud);
+Gps gps = Gps();
 
 unsigned long startTime = 0;
 int positionMin = 0;
 const int DEPLACEMENT_SERVO = 100;
+float Lat = 0;
+float Lon = 0;
 
 static const int RXPin = 2, TXPin = 3;
 static const uint32_t GPSBaud = 9600;
-// The TinyGPS++ object
-TinyGPSPlus gps;
 // The serial connection to the GPS device
 SoftwareSerial ss(RXPin, TXPin);
 
@@ -42,7 +41,7 @@ void setup() {
   pinMode(PWDG, OUTPUT);
   pinMode(DIRG, OUTPUT);
   //Interupter Setup
-  pinMode(interupteur, INPUT);
+  pinMode(switchgps, INPUT_PULLUP);
   //Arm servo-motors Setup
   servoinf.attach(9);
   servoinf.write(65);
@@ -58,14 +57,19 @@ void setup() {
   int distancelaser;
   Serial.println(F("Succeeded to boot Captor VL530X"));
   Serial.println(F("Setup Finished"));
-  gps.begin();
-  }
-
-
+}
 
 void loop() {
 
   mvt.forward();
+
+  if (digitalRead(switchgps) == HIGH) {
+    Lat = gps.latitude();
+    Lon = gps.longitude();
+    Serial.print("Latitude: ");Serial.println(Lat);
+    Serial.print("Longitude: ");Serial.println(Lon);
+  }
+
 
   if (millis() - startTime > DEPLACEMENT_SERVO) {
     cd.continuousScan(servoinf);

@@ -7,7 +7,6 @@
 class Gps {
   public:
     Gps();
-    void begin();
     void loop();
     float latitude();
     float longitude();
