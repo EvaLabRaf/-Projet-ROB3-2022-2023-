@@ -19,7 +19,8 @@ int interupteur = 7;
 //Library
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
-Gps gps = Gps();
+//Gps gps = Gps();
+Gps gps(RXPin, TXPin, GPSBaud);
 
 unsigned long startTime = 0;
 int positionMin = 0;
