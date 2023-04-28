@@ -1,8 +1,10 @@
 #include "Capteurdistance.hpp"
-#include "Gps.hpp"
-#include "Mouvements.hpp"
 #include "Adafruit_VL53L0X.h"
 #include "Servo.h"
+#include "Gps.hpp"
+#include "TinyGPS++.h"
+#include "SoftwareSerial.h"
+#include "Mouvements.hpp"
 
 //Servo
 Servo servoinf;
@@ -12,13 +14,23 @@ int DIRD = 12;
 //Moteurs Gauche
 int PWDG = 6;
 int DIRG = 13;
+//Interupteur
+int interupteur = 7;
 //Library
 Mouvements mvt = Mouvements();
 Capteurdistance cd = Capteurdistance();
+Gps gs = Gps();
 
 unsigned long startTime = 0;
 int positionMin = 0;
 const int DEPLACEMENT_SERVO = 100;
+
+static const int RXPin = 2, TXPin = 3;
+static const uint32_t GPSBaud = 9600;
+// The TinyGPS++ object
+TinyGPSPlus gps;
+// The serial connection to the GPS device
+SoftwareSerial ss(RXPin, TXPin);
 
 void setup() {
   Serial.begin(9600);
@@ -28,6 +40,8 @@ void setup() {
   pinMode(DIRD, OUTPUT);
   pinMode(PWDG, OUTPUT);
   pinMode(DIRG, OUTPUT);
+  //Interupter Setup
+  pinMode(interupteur, INPUT);
   //Arm servo-motors Setup
   servoinf.attach(9);
   servoinf.write(65);

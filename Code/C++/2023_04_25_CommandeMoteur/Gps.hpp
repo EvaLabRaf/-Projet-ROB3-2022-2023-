@@ -4,9 +4,12 @@
 #include "TinyGPS++.h"
 #include "SoftwareSerial.h"
 
-class Gps {
+class Gps : public SoftwareSerial {
 public:
   Gps();
+  void smartDelay(unsigned long ms);
+  static const int RXPin = 2;
+  static const int TXPin = 3;
   
 };
 
