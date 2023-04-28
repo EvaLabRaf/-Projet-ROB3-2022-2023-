@@ -1,28 +1,24 @@
-#ifndef Gps_h
-#define Gps_h
+#ifndef GPS_H
+#define GPS_H
 
-#include "Arduino.h"
 #include "TinyGPS++.h"
 #include "SoftwareSerial.h"
 
 class Gps {
   public:
-    Gps(int rxPin, int txPin, uint32_t baudRate);
+    Gps();
     void begin();
-    void update();
-    float getLatitude();
-    float getLongitude();
-    bool isDataValid();
+    void loop();
+    float latitude();
+    float longitude();
 
   private:
-    int _rxPin;
-    int _txPin;
-    uint32_t _baudRate;
-    TinyGPSPlus _gps;
-    SoftwareSerial _ss;
-    unsigned long _lastUpdateTime;
-
+    static const int RXPin = 2, TXPin = 3;
+    static const uint32_t GPSBaud = 9600;
+    TinyGPSPlus gps;
+    SoftwareSerial ss;
     void smartDelay(unsigned long ms);
+    void printFloat(float val, bool valid, int len, int prec);
 };
 
 #endif
