@@ -35,6 +35,7 @@ SoftwareSerial ss(RXPin, TXPin);
 void setup() {
   Serial.begin(9600);
   Serial.println(F("Setup Started"));
+  
   //Motors Setup
   pinMode(PWDD, OUTPUT);
   pinMode(DIRD, OUTPUT);
@@ -62,7 +63,7 @@ void setup() {
 void loop() {
 
   mvt.forward();
-
+  
   if (digitalRead(switchgps) == HIGH) {
     Lat = gps.latitude();
     Lon = gps.longitude();
@@ -70,7 +71,7 @@ void loop() {
     Serial.print("Longitude: ");Serial.println(Lon);
   }
 
-
+  
   if (millis() - startTime > DEPLACEMENT_SERVO) {
     cd.continuousScan(servoinf);
     cd.angleIncrement();
@@ -97,4 +98,5 @@ void loop() {
 
     startTime = millis();
   }
+  
 }

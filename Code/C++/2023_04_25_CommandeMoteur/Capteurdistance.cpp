@@ -60,11 +60,6 @@ int Capteurdistance::scanSweep(Servo servoinf) {
 
 int Capteurdistance::continuousScan(Servo servoinf) {
   int k = 0;
-  /*
-  Serial.println(F("==> continuousScan"));
-  Serial.print("anglePosition vaut : ");
-  Serial.println(anglePosition);
-  */
 
   while (k <= anglePosition) {
     servoInfPosition = infAngleMin + k * infPas;
@@ -73,15 +68,11 @@ int Capteurdistance::continuousScan(Servo servoinf) {
 
   servoinf.write(servoInfPosition);
   dist = distance();
-  //Serial.println(dist);
   return (dist);
 }
 
 int Capteurdistance::angleIncrement() {
-  /*
-  Serial.print("anglePosition: "); Serial.println(anglePosition);
-  Serial.print("sensScan: "); Serial.println(sensScan);
-  */
+
   if (sensScan == true) {
     anglePosition++;
     if (anglePosition >= lenghtScanTableau + 1) {
