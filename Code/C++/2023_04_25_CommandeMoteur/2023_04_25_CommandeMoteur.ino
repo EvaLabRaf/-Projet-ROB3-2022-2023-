@@ -76,8 +76,6 @@ void loop() {
     cd.continuousScan(servoinf);
     cd.angleIncrement();
     int distancelaser = cd.getDist();
-    //Serial.print(F("dist vaut :"));
-    //Serial.println(distancelaser);
 
     if (distancelaser < 200) {
       Serial.println(F("Object in range"));
